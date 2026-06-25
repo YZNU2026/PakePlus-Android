@@ -253,24 +253,25 @@
   .btn-sm { padding: 7px 15px; font-size: 0.85rem; }
 
   /* === VIDEO SECTION === */
-  .video-grid {
+.video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* auto-fill：空白位置保留空位，卡片固定最小宽度不拉伸，左对齐 */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
-  }
+}
 
-  .video-card {
+.video-card {
     background: var(--card);
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
     border: 1px solid var(--border);
     transition: var(--transition);
-  }
+}
 
-  .video-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+.video-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
 
-  .video-thumb {
+.video-thumb {
     width: 100%;
     aspect-ratio: 16/9;
     background: linear-gradient(135deg, #1e1b4b, #312e81);
@@ -280,9 +281,9 @@
     position: relative;
     cursor: pointer;
     overflow: hidden;
-  }
+}
 
-  .video-thumb .play-icon {
+.video-thumb .play-icon {
     width: 56px;
     height: 56px;
     background: rgba(255,255,255,0.95);
@@ -293,11 +294,11 @@
     font-size: 1.5rem;
     transition: var(--transition);
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  }
+}
 
-  .video-thumb:hover .play-icon { transform: scale(1.1); }
+.video-thumb:hover .play-icon { transform: scale(1.1); }
 
-  .video-thumb .video-label {
+.video-thumb .video-label {
     position: absolute;
     bottom: 12px;
     left: 12px;
@@ -307,40 +308,40 @@
     border-radius: 4px;
     font-size: 0.75rem;
     backdrop-filter: blur(4px);
-  }
+}
 
-  .video-info { padding: 16px 18px; }
+.video-info { padding: 16px 18px; }
 
-  .video-info h3 {
+.video-info h3 {
     font-size: 1rem;
     font-weight: 700;
     margin-bottom: 6px;
-  }
+}
 
-  .video-info p {
+.video-info p {
     font-size: 0.85rem;
     color: var(--text-light);
     line-height: 1.5;
     margin-bottom: 12px;
-  }
+}
 
-  .video-info .tags {
+.video-info .tags {
     display: flex;
     gap: 6px;
     flex-wrap: wrap;
     margin-bottom: 12px;
-  }
+}
 
-  .video-info .tag {
+.video-info .tag {
     font-size: 0.75rem;
     padding: 2px 10px;
     border-radius: 12px;
     background: #f5f3ff;
     color: var(--primary);
     font-weight: 500;
-  }
+}
 
-  .video-modal {
+.video-modal {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     background: rgba(0,0,0,0.85);
@@ -349,9 +350,9 @@
     align-items: center;
     justify-content: center;
     animation: fadeIn 0.2s ease;
-  }
+}
 
-  .video-modal-inner {
+.video-modal-inner {
     width: 90%;
     max-width: 900px;
     aspect-ratio: 16/9;
@@ -359,15 +360,15 @@
     border-radius: var(--radius);
     overflow: hidden;
     position: relative;
-  }
+}
 
-  .video-modal-inner iframe {
+.video-modal-inner iframe {
     width: 100%;
     height: 100%;
     border: none;
-  }
+}
 
-  .video-modal-close {
+.video-modal-close {
     position: absolute;
     top: -40px;
     right: 0;
@@ -382,7 +383,7 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-  }
+}
 
   /* === MATERIALS SECTION === */
   .material-filters {
@@ -1137,77 +1138,533 @@
   </section>
 
   <!-- ==================== VIDEO ==================== -->
-  <section class="page" id="page-videos">
+<section class="page" id="page-videos">
     <div class="card-header">
       <h2>🎬 视频学习资源</h2>
       <span style="color:var(--text-muted);font-size:0.9rem">精选适合聋生的英语教学视频</span>
     </div>
     <p style="color:var(--text-light);margin-bottom:20px">所有视频均配有手语演示/字幕，点击即可观看完整内容。</p>
-    
+
+    <!-- 栏目1：英语字母书写教学（手语版） -->
+   <div class="video-column-block" style="margin-bottom:32px;">
+    <h3 style="font-size:1.2rem;margin-bottom:12px;border-left:4px solid #4f46e5;padding-left:10px;">英语字母书写教学（手语版）</h3>
+    <p style="color:var(--text-light);margin:0 0 16px 4px;">适合入门级聋生，结合手语演示26个英文字母的书写，打好英语基础。包含字母书写、大小写专项练习配套视频。</p>
     <div class="video-grid">
-      <div class="video-card" onclick="openVideo('BV1AWGX6DEui', '英语字母书写教学（手语版）')">
-        <div class="video-thumb" style="background:linear-gradient(135deg, #4f46e5, #7c3aed)">
-          <div class="play-icon">▶</div>
+        <!-- 原有视频卡片 -->
+        <div class="video-card" onclick="openVideo('BV1AWGX6DEui', '英语字母书写教学（手语版）')">
+           <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/1.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+                <div class="play-icon">▶</div>
+            </div>
+            <div class="video-info">
+                <div class="tags">
+                    <span class="tag">🎬 视频</span>
+                    <span class="tag">🤟 手语版</span>
+                    <span class="tag">🔤 字母</span>
+                </div>
+                <h3>英语字母书写教学（手语版）</h3>
+            </div>
         </div>
-        <div class="video-info">
-          <div class="tags">
-            <span class="tag">🎬 视频</span>
-            <span class="tag">🤟 手语版</span>
-            <span class="tag">🔤 字母</span>
-          </div>
-          <h3>英语字母书写教学（手语版）</h3>
-          <p>适合入门级聋生，结合手语演示26个英文字母的书写，打好英语基础</p>
-        </div>
-      </div>
 
-      <div class="video-card" onclick="openVideo('https://www.bilibili.com/video/BV14GwFzwE8X/', '英语语法基础（课程+手语）')">
-        <div class="video-thumb" style="background:linear-gradient(135deg, #0891b2, #06b6d4)">
-          <div class="play-icon">▶</div>
-        </div>
-        <div class="video-info">
-          <div class="tags">
-            <span class="tag">🎬 视频</span>
-            <span class="tag">📐 语法</span>
-            <span class="tag">🤟 手语</span>
-          </div>
-          <h3>英语语法基础（课程+手语）</h3>
-          <p>零基础语法教学，用手语讲解核心语法知识点，循序渐进</p>
-        </div>
-      </div>
+     </div>
+</div>
 
-      <div class="video-card" onclick="openVideo('BV16rwMz5EHW', '绘本课程（手语讲解）')">
-        <div class="video-thumb" style="background:linear-gradient(135deg, #db2777, #ec4899)">
-          <div class="play-icon">▶</div>
-        </div>
-        <div class="video-info">
-          <div class="tags">
-            <span class="tag">🎬 视频</span>
-            <span class="tag">📚 绘本</span>
-            <span class="tag">🤟 手语</span>
-          </div>
-          <h3>绘本课程（手语讲解）</h3>
-          <p>绘本对话教学与习题讲解，搭配手语演示，提升实用交流能力</p>
-        </div>
-      </div>
-
-    <div class="video-grid">
-      <div class="video-card" onclick="openVideo('BV1cnwuzmETC', '英语课文双语讲解（手语版）')">
-        <div class="video-thumb" style="background:linear-gradient(135deg, #4f46e5, #7c3aed)">
-          <div class="play-icon">▶</div>
-        </div>
-        <div class="video-info">
-          <div class="tags">
-            <span class="tag">🎬 视频</span>
-            <span class="tag">🤟 手语版</span>
-            <span class="tag">🔤 字母</span>
-          </div>
-          <h3>英语课文双语讲解（手语版）</h3>
-          <p>适合入门级聋生，结合手语讲解英语课文内容，提升学习效率</p>
-        </div>
-      </div>
+    <!-- 栏目2：英语语法基础（课程+手语） -->
+    <div class="video-column-block" style="margin-bottom:32px;">
+        <h3 style="font-size:1.2rem;margin-bottom:12px;border-left:4px solid #0891b2;padding-left:10px;">英语语法基础（课程+手语）</h3>
+        <p style="color:var(--text-light);margin:0 0 16px 4px;">零基础语法教学，用手语拆解核心语法与时态知识点，循序渐进，降低聋生理解难度。</p>
+        <div class="video-grid">
+             <div class="video-card" onclick="openVideo('BV14GwFzwE8X', '形容词最高级用法')">
+     <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/2.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
     </div>
-  </section>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>形容词最高级用法</h3>
+    </div>
+</div>
+       <div class="video-card" onclick="openVideo('BV1z1cfzDEUt', '一般将来时 第一课时')">
+    <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/3.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>一般将来时 第一课时</h3>
+    </div>
+</div>
+       <div class="video-card" onclick="openVideo('BV1cnwuzmETC', '一般将来时 第二课时')">
+     <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/4.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>一般将来时 第二课时</h3>
+    </div>
+</div>
+       <div class="video-card" onclick="openVideo('BV1FnwuzmE1D', '间接引语')">
+     <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/5.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>间接引语</h3>
+    </div>
+</div>
+    <div class="video-card" onclick="openVideo('BV1A5wuzQEhk', '零冠词用法')">
+     <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/6.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>零冠词用法</h3>
+    </div>
+</div>
+<div class="video-card" onclick="openVideo('BV1CjwuznE5E', '补全对话 第一课时')">
+    <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/7.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>补全对话 第一课时</h3>
+    </div>
+</div>
+<div class="video-card" onclick="openVideo('BV1PVwuzpECS', '补全对话 第二课时')">
+     <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/8.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>补全对话 第二课时</h3>
+    </div>
+</div>
+ <div class="video-card" onclick="openVideo('BV1sVwuzpEjr', '作文：中国神话故事')">
+    <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/9.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>作文：中国神话故事</h3>
+    </div>
+</div>
+ </div>
+    </div>
+    <!-- 栏目3：绘本课程（手语讲解） -->
+    <div class="video-column-block" style="margin-bottom:32px;">
+        <h3 style="font-size:1.2rem;margin-bottom:12px;border-left:4px solid #db2777;padding-left:10px;">绘本课程（手语讲解）</h3>
+        <p style="color:var(--text-light);margin:0 0 16px 4px;">英文绘本对话教学与配套习题讲解，全程搭配手语演示，锻炼日常实用英语交流能力。</p>
+        <div class="video-grid">
+           <div class="video-card" onclick="openVideo('BV11B7T63Ecy', '八一起义纪念馆')">
+    <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/10.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>八一起义纪念馆</h3>
+    </div>
+</div>
+       <div class="video-card" onclick="openVideo('BV1NB7T6GESz', '八一广场')">
+     <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/11.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>八一广场</h3>
+    </div>
+</div>
+          <div class="video-card" onclick="openVideo('BV1Ak7T6zE1Z', '滕王阁')">
+     <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/12.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>滕王阁</h3>
+    </div>
+</div>   
+          <div class="video-card" onclick="openVideo('BV1Cr7T6uEYf', '江西省博物馆')">
+     <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/13.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>江西省博物馆</h3>
+    </div>
+</div>
+          <div class="video-card" onclick="openVideo('BV1mY7T6yEiA', '南昌舰')">
+    <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/14.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>南昌舰</h3>
+    </div>
+</div>
+   <div class="video-card" onclick="openVideo('BV1Ua7T6LEhg', '新四军旧部陈列馆')">
+    <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/15.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>新四军旧部陈列馆</h3>
+    </div>
+</div>
+ <div class="video-card" onclick="openVideo('BV1Ua7T6LEGm', '万寿宫')">
+     <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/16.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>万寿宫</h3>
+    </div>
+</div>
+ <div class="video-card" onclick="openVideo('BV1Ua7T6LE5p', '绳金塔')">
+    <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/17.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>绳金塔</h3>
+    </div>
+</div>
+  </div>
+    </div>
 
+    <!-- 栏目4：英语课文双语讲解（手语版） -->
+    <div class="video-column-block">
+        <h3 style="font-size:1.2rem;margin-bottom:12px;border-left:4px solid #4f46e5;padding-left:10px;">英语课文双语讲解（手语版）</h3>
+        <p style="color:var(--text-light);margin:0 0 16px 4px;">面向入门聋生，双语结合手语逐段解析课本课文，拆分重点词句，大幅提升课堂学习效率。</p>
+        <div class="video-grid">
+            <div class="video-card" onclick="openVideo('BV1C2j26LEEP', 'Eat Well 第一课时')">
+    <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/18.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>Eat Well 第一课时</h3>
+    </div>
+</div>
+          <div class="video-card" onclick="openVideo('BV1J3j26gEQL', 'Eat Well 第二课时')">
+     <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/19.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>Eat Well 第二课时</h3>
+    </div>
+</div>
+          <div class="video-card" onclick="openVideo('BV1B5j26TEWo', 'Heart to Heart 第一课时')">
+     <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/20.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>Heart to Heart 第一课时</h3>
+    </div>
+</div>
+         <div class="video-card" onclick="openVideo('BV1kKj26kEtm', 'Heart to Heart 第二课时')">
+     <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/21.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>Heart to Heart 第二课时</h3>
+    </div>
+</div>
+  <div class="video-card" onclick="openVideo('BV1rGjU6jEvv', 'Help the Disabled')">
+    <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/22.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>Help the Disabled</h3>
+    </div>
+</div>
+         <div class="video-card" onclick="openVideo('BV1rGjU6jEvv', 'I like playing badminton 第一课时')">
+    <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/23.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>I like playing badminton 第一课时</h3>
+    </div>
+</div>
+         <div class="video-card" onclick="openVideo('BV1cGjU67Eqz', 'I like playing badminton 第二课时')">
+     <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/24.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>I like playing badminton 第二课时</h3>
+    </div>
+</div>
+         <div class="video-card" onclick="openVideo('BV16GjU6jEmx', 'Paralympic Games')">
+    <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/25.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>Paralympic Games</h3>
+    </div>
+</div>
+         <div class="video-card" onclick="openVideo('BV1HgjU6UEvA', 'Will we have robots？第一课时')">
+     <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/26.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>Will we have robots？第一课时</h3>
+    </div>
+</div>
+         <div class="video-card" onclick="openVideo('BV1rgjU6mEfe', 'Will we have robots？第二课时')">
+    <div class="video-thumb" style="
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background-image: url('./cover/27.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;">
+        <div class="play-icon">▶</div>
+    </div>
+    <div class="video-info">
+        <div class="tags">
+            <span class="tag">🎬 视频</span>
+            <span class="tag">🤟 手语版</span>
+            <span class="tag">🔤 字母</span>
+        </div>
+        <h3>Will we have robots？第二课时</h3>
+    </div>
+</div>
+        </div>
+    </div>
+</section>
   <!-- ==================== MATERIALS ==================== -->
   <section class="page" id="page-materials">
     <div class="card-header">
